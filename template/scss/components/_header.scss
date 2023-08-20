@@ -8,6 +8,9 @@
   z-index: 50;
   &.sticky {
   }
+  &.header-cus {
+    background: $color-black;
+  }
   &-nav {
     height: inherit;
     position: relative;
