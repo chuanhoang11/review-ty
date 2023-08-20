@@ -40,11 +40,19 @@
   .inner {
     @include mid-flex;
     font-size: 6rem;
+    @include max(900px) {
+      font-size: 4rem;
+    }
   }
   &.sc-btn {
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
     background: #4d4d4d;
+    @include max(900px) {
+      margin: 0 auto;
+      width: 10rem;
+      height: 10rem;
+    }
   }
 }
