@@ -33,8 +33,27 @@
     @include flex;
     align-items: center;
     gap: 2.4rem;
+    @include max(500px) {
+      gap: 0.8rem;
+    }
   }
   &-select {
+    position: relative;
+    &-pos {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.8rem 1.6rem;
+      display: none;
+      .header-select-gr {
+        background: transparent;
+        border-radius: unset;
+        padding: unset;
+        justify-content: unset;
+      }
+    }
     &-gr {
       @include mid-flex;
       align-items: center;
@@ -44,6 +63,15 @@
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(0.1rem);
       cursor: pointer;
+      @include max(500px) {
+        gap: 0.6rem;
+        padding: 0.8rem;
+      }
+      &.active {
+        .icon {
+          transform: rotate(180deg);
+        }
+      }
     }
     .icon-flag {
       @include mid-flex;
@@ -59,6 +87,7 @@
     }
     .icon {
       font-size: 1.4rem;
+      transition: 0.3s ease-in-out;
     }
   }
   &-menu {
@@ -66,13 +95,27 @@
       @include flex;
       align-items: center;
       gap: 0.8rem;
+      cursor: pointer;
       .text {
         font-weight: 600;
         text-transform: uppercase;
       }
       .icon {
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 2rem;
         @include mid-flex;
         transform: rotate(-180deg) scaleY(-1);
+        i {
+          transition: 0.3s ease-in-out;
+        }
+      }
+      &.active {
+        i {
+          &::before {
+            content: "\f00d";
+          }
+        }
       }
     }
   }
@@ -115,6 +158,9 @@
         @include fz-32;
         font-weight: 600;
         position: relative;
+        @include max(560px) {
+          font-size: 1.4rem;
+        }
         &::after {
           content: attr(data-label);
           position: absolute;
@@ -139,7 +185,7 @@
     font-weight: 700;
     display: inline-flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0);
+    // background: rgba(0, 0, 0, 0);
     span {
       display: inline-flex;
       position: relative;
@@ -196,7 +242,7 @@
       transition: transform 300ms;
       display: flex;
       align-items: center;
-      height: 1.5em;
+      height: 80%;
       &::after {
         content: attr(data-label);
         position: absolute;
