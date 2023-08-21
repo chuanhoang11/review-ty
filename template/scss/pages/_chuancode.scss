@@ -1,0 +1,43 @@
+.dcv {
+    overflow: hidden;
+
+    &-slider {
+        .swiper {
+            overflow: visible;
+
+            &-slide {
+                width: fit-content;
+                overflow: visible;
+                height: 30rem;
+            }
+        }
+
+        &-one {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 2.4rem;
+
+            @include max($mobile) {
+                margin-bottom: 1rem;
+            }
+
+            .swiper-slide {
+                &.is-phone {
+                    .dcv-img {}
+                }
+            }
+        }
+    }
+
+    &-img {
+        height: 100%;
+
+        .inner {
+            height: 100%;
+
+            img {
+                height: 100%;
+            }
+        }
+    }
+}
